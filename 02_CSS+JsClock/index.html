@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+</head>
+<body>
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand">
+          <h1>HOUR</h1>
+          <h2 class="hour"></h2>
+        </div>
+        <div class="hand min-hand">
+          <h1>MINUTE</h1>
+          <h2 class="minute"></h2>
+        </div>
+        <div class="hand second-hand">
+          <h1>SECOND</h1>
+          <h2 class="second"></h2>
+        </div>
+      </div>
+    </div>
+
+
+  <style>
+    html {
+      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+      background-size: cover;
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .clock {
+      width: calc(100% - 200px);
+      height: 80vh;
+      margin: 0 auto;
+    }
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+    }
+
+    .hour-hand, 
+    .min-hand, 
+    .second-hand {
+      width: calc(100% / 3 - 10px);
+      height: 60%;
+      background: black;
+      position: relative;
+      border: 1px solid #fff;
+      border-radius: 10px;
+      margin: 0 2px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .hand h1 {
+      font-size: 3rem;
+      color: #fff;
+      margin: 0;
+    }
+
+    .hand h2 {
+      font-size: 7.5rem;
+      color: #fff;
+      margin: 0;
+    }
+
+  </style>
+
+  <script>
+    console.log('Feito por Tamires Manhães, minha versão do relógio do Javascript 30 challenge do Wes Bos');
+
+    function setDate(){
+      const hourBox = document.getElementsByClassName('hour');
+      const minuteBox = document.getElementsByClassName('minute');
+      const secondBox = document.getElementsByClassName('second'); 
+
+      const now = new Date();
+      const hours = now.getHours();
+      const minute = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      hourBox[0].innerHTML = hours;
+      minuteBox[0].innerHTML = minute;
+      secondBox[0].innerHTML = seconds;
+    }
+
+    setInterval(setDate, 1000);
+
+  </script>
+</body>
+</html>
